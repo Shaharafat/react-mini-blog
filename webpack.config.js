@@ -1,5 +1,4 @@
 const path = require("path");
-// const glob = require("glob");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,10 +8,10 @@ module.exports = {
   output: {
     filename: "bundle.[hash].js",
     path: path.resolve(__dirname, "dist"),
-    publicPath:'/'
+    publicPath: "/",
   },
   devServer: {
-    historyApiFallback:true
+    historyApiFallback: true,
   },
   devtool: "inline-source-map",
   optimization: {
@@ -37,24 +36,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].css",
     }),
-    // new PurgecssPlugin({
-    //   paths: glob.sync(`./index.js`, { nodir: true }),
-      // paths: glob.sync([
-      //   `${PATHS.src}/index.html`,
-      //   `./app.js`
-      // ], {nodir:true})
-    // }),
   ],
-
-  // devServer: {
-    
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-  //     "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-  //   }
-  // },
-
   module: {
     rules: [
       {

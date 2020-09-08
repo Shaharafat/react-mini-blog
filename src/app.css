@@ -1,0 +1,43 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+section,
+main,
+span,
+input,
+form,
+img,
+a,
+figure,
+video,ul,li {
+  margin: 0;
+  padding: 0;
+  font-family: 'open sans', sans-serif;
+  box-sizing: border-box;
+}
+
+.fr-light {
+  background-color: rgba(255,255,255,.8);
+  color: #2f3542;
+}
+
+.bg-light{
+  background-color:#ecf0f1 ;
+}
+
+.dark {
+  background-color: #596275;
+  color: #303952;
+}
+
+
+.container{
+  min-height: 100vh;
+}
