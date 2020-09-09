@@ -1,0 +1,86 @@
+.post {
+  width: 80%;
+  margin: 1rem auto;
+  padding: 1rem;
+  box-shadow: 0 2px 20px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post__userInfo {
+  display: flex;
+  align-items: center;
+  /* padding-bottom: 0.8rem; */
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.post__userImage {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.post__userData {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+
+.post__userName {
+  font-family: "oswald", "sans-serif";
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.post__date {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.post__content {
+  padding: 0.4rem 0rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.post__reaction {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  width: 60px;
+}
+
+.post__reaction__icon {
+  color: rgb(144, 144, 144);
+  cursor: pointer;
+  transform: center center;
+}
+
+.red {
+  color: rgb(223, 43, 43);
+}
+
+.black {
+  color: rgb(8, 8, 8);
+}
+
+.animation {
+  animation: bubbleUp 250ms ease-out forwards;
+}
+
+@keyframes bubbleUp {
+  0% {
+    transform: scale(1);
+
+    transform: center center;
+  }
+  50% {
+    transform: scale(1.5);
+
+    transform: center center;
+  }
+  100% {
+    transform: scale(1);
+    transform: center center;
+  }
+}

@@ -1,0 +1,82 @@
+.writePost-container {
+  width: 80%;
+  margin: 1rem auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.writePost__userImage {
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid rgb(181, 181, 181);
+  margin-bottom: 1rem;
+}
+
+.writePost__userName {
+  font-family: "oswald", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.writePost__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.writePost__textBox {
+  resize: none;
+  outline: none;
+  border: 1px solid rgb(201, 201, 201);
+  padding: 0.3rem;
+}
+.writePost__textBox:focus {
+  outline: none;
+}
+
+.writePost__wordCount {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.writePost__submit {
+  width: 25%;
+  margin-left: auto;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  background-color: rgb(70, 218, 70);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  transition: background-color 250ms ease-in;
+}
+
+.writePost__submit:hover {
+  background-color: rgb(62, 196, 62);
+}
+
+.writePost__submit:disabled{
+  background-color: rgb(144, 144, 144);
+  cursor: not-allowed;
+}
+/* making overflow red */
+.red {
+  color: rgb(226, 39, 39);
+}
+
+@media screen and (min-width: 640px) {
+  
+}

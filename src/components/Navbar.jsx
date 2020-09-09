@@ -16,7 +16,7 @@ const Navbar = ({ hamburgerStatus, hamburgerToggle }) => {
       </h1>
       <button className="navbar__theme-toggle">Light</button>
       <span className="navbar__hamburger" onClick={hamburgerToggle}>
-        {status ? (
+        {hamburgerStatus ? (
           <FontAwesomeIcon icon={faTimes} />
         ) : (
           <FontAwesomeIcon icon={faBars} />
