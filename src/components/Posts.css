@@ -1,6 +1,5 @@
 .post {
-  width: 80%;
-  margin: 1rem auto;
+  margin: 1rem 0; 
   padding: 1rem;
   box-shadow: 0 2px 20px 4px rgba(0, 0, 0, 0.1);
 }
@@ -39,7 +38,7 @@
   padding: 0.4rem 0rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid;
 }
 
 .post__reaction {
@@ -47,7 +46,7 @@
   justify-content: space-around;
   font-size: 1.1rem;
   margin-top: 0.5rem;
-  width: 60px;
+  width: 20px;
 }
 
 .post__reaction__icon {
@@ -60,9 +59,7 @@
   color: rgb(223, 43, 43);
 }
 
-.black {
-  color: rgb(8, 8, 8);
-}
+
 
 .animation {
   animation: bubbleUp 250ms ease-out forwards;

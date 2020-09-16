@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { ThemeContext, themes } from './ThemeContext.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import userPic from "../images/pp.jpg";
@@ -17,6 +18,7 @@ const Posts = ({
   lovedAnimation,
   bookmarkAnimation,
 }) => {
+  const theme = useContext(ThemeContext)
   const handleLoveReaction = (event) => {
     console.log("handling love...");
     setLoved(id);
@@ -28,15 +30,15 @@ const Posts = ({
   };
 
   return (
-    <div className="post fr-light">
+    <div className="post" style={{background:theme.foreground}}>
       <div className="post__userInfo">
         <img src={userPic} className="post__userImage" alt="image..." />
-        <div className="post__userData">
+        <div className="post__userData" style={{color:theme.font}}>
           <span className="post__userName">{name}</span>
           <span className="post__date">{date}</span>
         </div>
       </div>
-      <div className="post__content">{postText}</div>
+      <div className="post__content" style={{color:theme.font,borderColor:theme.background}}>{postText}</div>
       <div className="post__reaction">
         <span
           className={`post__reaction__icon ${
@@ -46,17 +48,7 @@ const Posts = ({
         >
           <FontAwesomeIcon style={{ pointerEvents: "none" }} icon={faHeart} />
         </span>
-        <span
-          className={`post__reaction__icon ${
-            bookmarked ? "black" : ""
-          } ${bookmarkAnimation}`}
-          onClick={handleBookmark}
-        >
-          <FontAwesomeIcon
-            style={{ pointerEvents: "none" }}
-            icon={faBookmark}
-          />
-        </span>
+        
       </div>
     </div>
   );

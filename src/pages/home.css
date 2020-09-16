@@ -1,0 +1,33 @@
+.main-content {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "wPost"
+    "posts"
+    "hashTag";
+  justify-content:start;
+  align-content: start;
+  grid-gap: 1rem;
+}
+
+.write-post {
+  grid-area: wPost;
+}
+
+.posts {
+  grid-area: posts;
+}
+
+.hash {
+  grid-area: hashTag;
+}
+
+@media screen and (min-width: 700px) {
+  .main-content {
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas:
+      "navbar navbar navbar"
+      "wPost posts hashTag";
+  }
+}

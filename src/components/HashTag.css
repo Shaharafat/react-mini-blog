@@ -1,0 +1,13 @@
+.hashTag-container {
+  margin: 1rem 0;
+
+  box-shadow: 0 2px 20px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.hashTag-header {
+  border-bottom: 1px solid rgb(213, 212, 212);
+  font-family: "oswald", sans-serif;
+  font-size: 1.3rem;
+  padding-bottom: .5rem;
+}
