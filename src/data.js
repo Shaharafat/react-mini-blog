@@ -4,7 +4,7 @@ export default [
     name: "Frederic Birckmann",
     date: "05-Jul-2020",
     postText:
-      "consequat varius integer ac leo #pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit",
+      "consequat varius  integer ac leo #pellentesque ultrices mattis odio donec vitae nisi na ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit",
     loved: false,
     bookmarked: true,
   },

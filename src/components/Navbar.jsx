@@ -45,7 +45,7 @@ const Navbar = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
           </>
         )}
       </button>
-      <span className="navbar__hamburger" onClick={hamburgerToggle}>
+      <span className="navbar__hamburger" style={{color:theme.font}} onClick={hamburgerToggle}>
         {hamburgerStatus ? (
           <FontAwesomeIcon icon={faTimes} />
         ) : (

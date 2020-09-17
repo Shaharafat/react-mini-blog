@@ -11,3 +11,12 @@
   font-size: 1.3rem;
   padding-bottom: .5rem;
 }
+
+
+.hashTags__list{
+  list-style-type:none;
+}
+
+.hashTags__list__item{
+  margin: .5rem 0;
+}

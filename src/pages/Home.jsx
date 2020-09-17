@@ -1,51 +1,29 @@
-import React, { useEffect, useState,useContext } from "react";
-import { ThemeContext, themes } from '../components/ThemeContext.jsx';
+import React, { useEffect, useState, useContext } from "react";
 
+import ReactDOM from "react-dom";
+import { ThemeContext, themes } from "../components/ThemeContext.jsx";
 
 import Navbar from "../components/Navbar.jsx";
 import WritePost from "../components/WritePost.jsx";
 import Posts from "../components/Posts.jsx";
 import HashTag from "../components/HashTag.jsx";
+
+import { findHash, handleHashTag } from "../helper.js";
+
 import postsData from "../data.js";
-// import BookmarkList from "../components/BookmarkList.jsx";
 
-import "./home.css";
+import "./Home.css";
 
-const Home = ({ hamburgerStatus, hamburgerToggle,changeTheme }) => {
+const Home = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
   const [allPosts, updatePosts] = useState(postsData);
+  const [hashTags, updateHashTagList] = useState(findHash(allPosts));
+
   const theme = useContext(ThemeContext);
-  // ❌ bookmarks section is not needed for this project. so, removed.
-  // const [bookmarks, updateBookmarks] = useState(
-  //   allPosts.filter((post) => post.bookmarked)
-  // );
 
-  // const setBookmark = (id) => {
-  //   updatePosts(
-  //     allPosts.map((post) =>
-  //       post.id === id
-  //         ? {
-  //             ...post,
-  //             bookmarked: !post.bookmarked,
-  //             bookmarkAnimation: !post.bookmarked ? "animation" : "",
-  //           }
-  //         : post
-  //     )
-  //   );
-
-  //   allPosts.forEach((post) => {
-  //     if (post.id === id) {
-  //       if (!post.bookmarked) {
-  //         updateBookmarks([post, ...bookmarks]);
-  //       } else {
-  //         updateBookmarks(
-  //           bookmarks.filter((bookmark) => bookmark.id !== post.id)
-  //         );
-  //       }
-  //     }
-  //   });
-  // };
-  // ❌ =========================
-
+  useEffect(() => {
+    updateHashTagList(findHash(allPosts));
+  }, [allPosts]);
+  
   const setLoved = (id) => {
     console.log("loved...");
     updatePosts(
@@ -82,21 +60,20 @@ const Home = ({ hamburgerStatus, hamburgerToggle,changeTheme }) => {
   };
 
   return (
-    <div className="container" style={{background:theme.background}}>
+    <div className="container" style={{ background: theme.background }}>
       <Navbar
         hamburgerStatus={hamburgerStatus}
         hamburgerToggle={hamburgerToggle}
         changeTheme={changeTheme}
       />
       <div className="main-content">
-        <div className="write-post" >
+        <div className="write-post">
           <WritePost getNewPost={getNewPost} />
         </div>
         <div className="posts">
           {allPosts.map((post) => (
             <Posts
               {...post}
-              // setBookmark={setBookmark}
               setLoved={setLoved}
               lovedAnimation={post.lovedAnimation}
               bookmarkAnimation={post.bookmarkAnimation}
@@ -104,7 +81,7 @@ const Home = ({ hamburgerStatus, hamburgerToggle,changeTheme }) => {
           ))}
         </div>
         <div className="hash">
-          <HashTag/>
+          <HashTag hashTags={hashTags} />
         </div>
       </div>
     </div>

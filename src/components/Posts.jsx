@@ -1,4 +1,6 @@
 import React, { useContext, useEffect } from "react";
+import ReactDOM from 'react-dom';
+import { handleHashTag } from "../helper.js";
 import { ThemeContext, themes } from './ThemeContext.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +40,7 @@ const Posts = ({
           <span className="post__date">{date}</span>
         </div>
       </div>
-      <div className="post__content" style={{color:theme.font,borderColor:theme.background}}>{postText}</div>
+      <div className="post__content" style={{ color: theme.font, borderColor: theme.background }}>{handleHashTag(postText)}</div>
       <div className="post__reaction">
         <span
           className={`post__reaction__icon ${
