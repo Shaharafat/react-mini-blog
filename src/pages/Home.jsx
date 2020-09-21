@@ -1,20 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 
-import ReactDOM from "react-dom";
 import { ThemeContext, themes } from "../components/ThemeContext.jsx";
 
+import "./Home.css";
 import Navbar from "../components/Navbar.jsx";
 import WritePost from "../components/WritePost.jsx";
 import Posts from "../components/Posts.jsx";
 import HashTag from "../components/HashTag.jsx";
 import HashTagPosts from "../pages/HashTagPosts.jsx";
-import Footer from '../components/Footer.jsx';
+import Footer from "../components/Footer.jsx";
 
-import { findHash, generateHashPosts, handleHashTag } from "../helper.js";
+import { findHash } from "../helper.js";
 
 import postsData from "../data.js";
-
-import "./Home.css";
 
 const Home = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
   const [allPosts, updatePosts] = useState(postsData);

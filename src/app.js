@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ThemeContext, themes } from "./components/ThemeContext.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "normalize.css";
 import "./app.css";
 
 import Home from "./pages/Home.jsx";
