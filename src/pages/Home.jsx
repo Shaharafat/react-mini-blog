@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 
 import { ThemeContext, themes } from "../components/ThemeContext.jsx";
 
-import "./Home.css";
+import "./home.css";
 import Navbar from "../components/Navbar.jsx";
 import WritePost from "../components/WritePost.jsx";
 import Posts from "../components/Posts.jsx";
