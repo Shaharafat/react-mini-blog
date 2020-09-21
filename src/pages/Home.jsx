@@ -7,8 +7,10 @@ import Navbar from "../components/Navbar.jsx";
 import WritePost from "../components/WritePost.jsx";
 import Posts from "../components/Posts.jsx";
 import HashTag from "../components/HashTag.jsx";
+import HashTagPosts from "../pages/HashTagPosts.jsx";
+import Footer from '../components/Footer.jsx';
 
-import { findHash, handleHashTag } from "../helper.js";
+import { findHash, generateHashPosts, handleHashTag } from "../helper.js";
 
 import postsData from "../data.js";
 
@@ -17,13 +19,22 @@ import "./Home.css";
 const Home = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
   const [allPosts, updatePosts] = useState(postsData);
   const [hashTags, updateHashTagList] = useState(findHash(allPosts));
+  const [showHashTagsPosts, togglePostStatus] = useState(false);
+  const [selectedTag, changeSelectedTag] = useState("");
 
   const theme = useContext(ThemeContext);
 
   useEffect(() => {
     updateHashTagList(findHash(allPosts));
   }, [allPosts]);
-  
+
+  const getHashTag = (tag) => {
+    togglePostStatus(true);
+    changeSelectedTag(tag);
+    // changeHashPostLists(generateHashPosts(tag, allPosts));
+    // console.log(hashPostList);
+  };
+
   const setLoved = (id) => {
     console.log("loved...");
     updatePosts(
@@ -65,23 +76,37 @@ const Home = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
         hamburgerStatus={hamburgerStatus}
         hamburgerToggle={hamburgerToggle}
         changeTheme={changeTheme}
+        showHashTagsPost={togglePostStatus}
       />
       <div className="main-content">
         <div className="write-post">
           <WritePost getNewPost={getNewPost} />
         </div>
         <div className="posts">
-          {allPosts.map((post) => (
-            <Posts
-              {...post}
+          {showHashTagsPosts ? (
+            <HashTagPosts
               setLoved={setLoved}
-              lovedAnimation={post.lovedAnimation}
-              bookmarkAnimation={post.bookmarkAnimation}
+              tag={selectedTag}
+              allPosts={allPosts}
+              sendHashTag={getHashTag}
             />
-          ))}
+          ) : (
+            allPosts.map((post) => (
+              <Posts
+                {...post}
+                setLoved={setLoved}
+                lovedAnimation={post.lovedAnimation}
+                bookmarkAnimation={post.bookmarkAnimation}
+                sendHashTag={getHashTag}
+              />
+            ))
+          )}
         </div>
         <div className="hash">
-          <HashTag hashTags={hashTags} />
+          <HashTag hashTags={hashTags} sendHashTag={getHashTag} />
+        </div>
+        <div className="footer">
+          <Footer />
         </div>
       </div>
     </div>

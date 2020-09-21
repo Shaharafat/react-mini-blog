@@ -5,8 +5,9 @@
   grid-template-areas:
     "wPost"
     "posts"
-    "hashTag";
-  justify-content:start;
+    "hashTag"
+    "footer";
+  justify-content: start;
   align-content: start;
   grid-gap: 1rem;
 }
@@ -23,11 +24,16 @@
   grid-area: hashTag;
 }
 
+.footer {
+  grid-area: footer;
+}
+
 @media screen and (min-width: 700px) {
   .main-content {
     grid-template-columns: 25% 50% 25%;
     grid-template-areas:
       "navbar navbar navbar"
-      "wPost posts hashTag";
+      "wPost posts hashTag"
+      ".. footer ..";
   }
 }

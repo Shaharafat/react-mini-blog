@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.footer__text {
+  font-family: "open sans", sans-serif;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__link {
+  background-color: blueviolet;
+  padding: 0.1rem 0.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fbfcfc;
+}
+
+.footer__link:hover{
+  text-decoration:underline;
+}
+
+.footer__heart{
+  color: #FF0000;
+}

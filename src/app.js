@@ -5,16 +5,13 @@ import "normalize.css";
 import "./app.css";
 
 import Home from "./pages/Home.jsx";
-import HashTagPosts from "./pages/HashTagPosts.jsx";
 
 const app = () => {
   const [hamburgerStatus, toggleHamburger] = useState(false);
-
   const [currentTheme, toggleTheme] = useState(themes.dark);
   const changeTheme = () => {
     toggleTheme(currentTheme === themes.light ? themes.dark : themes.light);
-  }
-
+  };
   const hamburgerToggle = () => {
     toggleHamburger(!hamburgerStatus);
   };
@@ -23,17 +20,15 @@ const app = () => {
     <>
       <ThemeContext.Provider value={currentTheme}>
         <Router>
-          {/* <div className="bg-light"> */}
-          <Route exact path="/">
-            <Home
-              hamburgerStatus={hamburgerStatus}
-              hamburgerToggle={hamburgerToggle}
-              changeTheme={changeTheme}
-            />
-          </Route>
-
-          {/* <Route pash="./hashtag/" component={HashTagPosts} /> */}
-          {/* </div> */}
+          <Switch>
+            <Route exact path="/">
+              <Home
+                hamburgerStatus={hamburgerStatus}
+                hamburgerToggle={hamburgerToggle}
+                changeTheme={changeTheme}
+              />
+            </Route>
+          </Switch>
         </Router>
       </ThemeContext.Provider>
     </>

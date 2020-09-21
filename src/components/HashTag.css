@@ -20,3 +20,12 @@
 .hashTags__list__item{
   margin: .5rem 0;
 }
+
+.hashTags__list__text{
+  font-weight: 600;
+  text-decoration:none;
+}
+
+.hashTags__list__text:hover{
+  text-decoration:underline;
+}

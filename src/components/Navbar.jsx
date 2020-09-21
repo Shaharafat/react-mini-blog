@@ -11,14 +11,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
-const Navbar = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
+const Navbar = ({ hamburgerStatus, hamburgerToggle, changeTheme,showHashTagsPost }) => {
   const theme = useContext(ThemeContext);
+  const handleLogoClick = () => {
+    hamburgerStatus === true && hamburgerToggle;
+    showHashTagsPost(false);
+  }
 
+  const homeButtonClick = () => {
+    hamburgerToggle();
+    showHashTagsPost(false);
+  }
   return (
     <nav className="navbar" style={{ background: theme.foreground }}>
       <h1
         className="navbar__logo"
-        onClick={hamburgerStatus === true ? hamburgerToggle : undefined}
+        onClick={handleLogoClick}
       >
         <Link style={{ color: theme.font }} to="/">
           Mini Blog
@@ -59,7 +67,7 @@ const Navbar = ({ hamburgerStatus, hamburgerToggle, changeTheme }) => {
           }  `}
           style={{ background: theme.foreground }}
         >
-          <li onClick={hamburgerToggle}>
+          <li onClick={homeButtonClick}>
             <Link
               style={{ color: theme.font, background: theme.background }}
               to="/"

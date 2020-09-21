@@ -1,16 +1,26 @@
 import React from "react";
 
-export const handleHashTag = (post, hashTags) => {
-  const organizedData = post.split(" ").map((data) => {
-    if (data.match(/^#\w+/)) {
-      return <span style={{ color: "red", fontWeight: "600" }}> {data} </span>;
-    }
+// export const handleHashTag = (post) => {
+//   const organizedData = post.split(" ").map((data) => {
+//     if (data.match(/^#\w+/)) {
+//       return (
+//         <span>
+//           <a
+//             className="post__hashTag"
+//             style={{ color: "red", fontWeight: "600" }}
+            
+//           >
+//             {data}{" "}
+//           </a>
+//         </span>
+//       );
+//     }
 
-    return data + " ";
-  });
+//     return data + " ";
+//   });
 
-  return organizedData;
-};
+//   return organizedData;
+// };
 
 export const findHash = (allPosts) => {
   let hashSet = new Set();

@@ -59,6 +59,14 @@
   color: rgb(223, 43, 43);
 }
 
+.post__hashTag{
+  text-decoration:none;
+  font-weight: 600;
+}
+
+.post__hashTag:hover{
+  text-decoration:underline;
+}
 
 
 .animation {

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import ReactDOM from 'react-dom';
-import { handleHashTag } from "../helper.js";
+// import { handleHashTag } from "../helper.js";
 import { ThemeContext, themes } from './ThemeContext.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +19,7 @@ const Posts = ({
   setLoved,
   lovedAnimation,
   bookmarkAnimation,
+  sendHashTag
 }) => {
   const theme = useContext(ThemeContext)
   const handleLoveReaction = (event) => {
@@ -26,10 +27,31 @@ const Posts = ({
     setLoved(id);
   };
 
-  const handleBookmark = (event) => {
-    console.log("handling bookmark...");
-    setBookmark(id);
-  };
+  const handleHashTagClick = (event) => {
+    const tag = event.target.innerHTML;
+    sendHashTag(tag);
+  }
+
+  const handleHashTag = (post) => {
+    const organizedData = post.split(" ").map((data) => {
+      if (data.match(/^#\w+/)) {
+        return (
+          <span>
+            <a
+              className="post__hashTag"
+              style={{ color: "red", fontWeight: "600" }}
+              onClick={handleHashTagClick}
+            >
+              {data}{" "}
+            </a>
+          </span>
+        );
+      }
+
+      return data + " ";
+    });
+    return organizedData;
+  }
 
   return (
     <div className="post" style={{background:theme.foreground}}>
