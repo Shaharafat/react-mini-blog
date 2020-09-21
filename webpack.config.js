@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: "./src/index.js",
-  mode: "development",
+  mode: "production",
   output: {
     filename: "bundle.[hash].js",
     path: path.resolve(__dirname, "dist"),
